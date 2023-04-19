@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raket</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div id="logo"></div>
+      </header>
+      <div class="wrapper2R">
+        <div class="box" id="div_color">
+    
+        </div>
+        <div class="box">
+            <button onclick="changeColorgreen()">Verander de kleur in groen</button>
+
+            <script>
+            function changeColorgreen() {
+             var div = document.getElementById("div_color")
+              div.style.backgroundColor = "green";
+            }
+            </script>
+            <br>
+            <button onclick="changeColorYellow()">Verander de kleur in geel.</button>
+
+            <script>
+            function changeColorYellow() {
+             var div = document.getElementById("div_color")
+              div.style.backgroundColor = "Yellow";
+            }
+            </script>
+          </button>
+          <br>
+    
+          <button onclick="changeBackGroundColor()">Verander de kleur van de 'body' in blauw.</button>
+            
+          <script>
+            function changeBackGroundColor() {
+             document.body.style.backgroundColor = "blue";
+         }
+          </script>
+          </button>
+
+          <button onclick="changeColor('green')">Verander achtergrondkleur</button>
+            <script>
+              function changeColor(color) {
+             document.body.style.backgroundColor = color;
+        }
+        </script>
+    
+          <!--
+            Plaats hier een HTML button met een onclick event waarin een functie
+            opgeroepen wordt die de achtergrondkleur een html element veranderd in
+            een kleur die je als argument aan de functie mee geeft.
+          -->
+    
+        </div>
+      </div>
+      <div class="wrapper2L">
+    
+        <div class="box">
+          <!--
+            Plaats hier de afbeelding (spaceship.png) met een onmouseover die een
+            functie oproept om de afmeting van deze img (this) te vergroten. Met deze
+            onmouseover functie veranderd ook de tekst van div met id raket_text in:
+            Het onmouseover event roept de functie bigImg op met argument this.
+    
+            Het onmouseout event roept functie op die de img terug op de initiÃ«le grote terug zet.
+            Verder zet deze functie de tekst van div met id raket_text terug op de initiÃ«le waarde:
+            Ga met je muis over de raket.
+          -->
+    
+          <img id="rocket" src="img/raket.webp" alt="rocket" width="115" border="0" onmouseover="bigImg(this)" onmouseout="resetImg()">
+    
+        </div>
+        <div class="box" id="raket_text">Ga met je muis over de raket.</div>
+      </div>
+
+      <script>
+        function bigImg(img) {
+          img.style.width = "200px";
+          document.getElementById("raket_text").innerHTML = "Het onmouseover event roept de functie bigImg op met argument this.";
+        }
+      
+        function resetImg() {
+          document.getElementById("rocket").style.width = "115px";
+          document.getElementById("raket_text").innerHTML = "Ga met je muis over de raket.";
+        }
+      </script>
+    
+    <div class="wrapper2R">
+      <div class="box">
+        <img id="spaceman" src="img/ruimteman.webp" alt="SpaceMan" width="115" border="0">
+      </div>
+      <div class="box" id="spaceman_text">
+        <button onclick="moveSpaceman('-780px')">
+          Verschuif de space man naar links.
+        </button><br>
+        <button onclick="moveSpaceman(0)">
+          Verschuif de space man naar het midden.
+        </button>
+        <br>
+        <button onclick="moveSpaceman('720px')">
+          Verschuif de space man naar rechts.
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function moveSpaceman(margin) {
+        var spaceman = document.getElementById("spaceman");
+        spaceman.style.marginLeft = margin;
+      }
+    </script>
+    
+      <div id="space" style="padding-bottom:200px">
+        <div id="mySpaceManSpace">
+          <img id="movingspaceman" src="IMG/ruimteman.webp" alt="Spaceman" border="0">
+        </div>
+        <img src="img/raket.webp" alt="SpaceShip" style="margin-top:-25%" width="115" border="0">
+    
+      </div>
+    
+      <!--
+        Schrijf een script dat img spaceman.png van width 0px in een tijdsverloop
+        van 3 seconden veranderd naar width 145px. Laat dit script ook de afmetingen
+        van het gebruikerswindow ophalen om van deze img eigenschap style.marginLeft
+        te zetten op 70% van de window.innerWidth. De initiÃ«le style.marginLeft staat
+        op
+      -->
+      <button onclick="setTransition(1)">
+        Zet de transition op 1 seconden
+      </button>
+      <button onclick="setTransition(2)">
+        Zet de transition op 2 seconden
+      </button>
+      <button onclick="setTransition(3)">
+        Zet de transition op 3 seconden
+      </button>
+
+      <img ...>
+      <div class="box" id="div_check_visibility">Scroll deze div in en uit beeld.</div>
+    
+      <div style="height: 686px;display: flex; align-items: center;justify-content: center;flex-direction:column">
+        <img ...>
+      </div>
+      <hr style="width:100%;">
+    
+      <button ...;">
+        Lanceer de raket.
+      </button>
+
+      <script>
+        function setTransition(duration) {
+          var spaceman = document.getElementById("spaceman");
+          spaceman.style.transitionDuration = duration + "s";
+        }
+        
+        setTimeout(function(){
+          var spaceman = document.getElementById("spaceman");
+          spaceman.style.width = "145px";
+          spaceman.style.marginLeft = (window.innerWidth * 0.7) + "px";
+        }, 3000);
+        
+        setTimeout(function(){
+          var spaceman = document.getElementById("spaceman");
+          spaceman.style.width = "145px";
+          spaceman.style.marginLeft = (window.innerWidth * 0.7) + "px";
+        }, 2000);
+        
+        setTimeout(function(){
+          var spaceman = document.getElementById("spaceman");
+          spaceman.style.width = "145px";
+          spaceman.style.marginLeft = (window.innerWidth * 0.7) + "px";
+        }, 1000);
+      </script>
+      
+</body>
+</html>
